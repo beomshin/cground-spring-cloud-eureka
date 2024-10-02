@@ -2,7 +2,7 @@
 <configuration scan="true" scanPeriod="30 seconds">
 
     <!-- log 기록 위치 설정 -->
-    <property name="LOGS_ABSOLUTE_PATH" value="./logs" />
+    <property name="LOGS_ABSOLUTE_PATH" value="./logs/spring-cloud-eureka" />
 
     <!-- 로그 패턴에 색상 적용 %clr(pattern){color} -->
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
@@ -43,5 +43,17 @@
             <appender-ref ref="CONSOLE" />
         </root>
     </springProfile>
+
+    <root level="info">
+
+        <springProfile name="console-logging">
+            <appender-ref ref="CONSOLE"/>
+        </springProfile>
+
+        <springProfile name="file-logging">
+            <appender-ref ref="FILE"/>
+        </springProfile>
+
+    </root>
 
 </configuration>
