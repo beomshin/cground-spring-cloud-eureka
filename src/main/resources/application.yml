@@ -2,8 +2,18 @@ server:
   port: 8761
 
 spring:
+  profiles:
+    active: local
+    group:
+      local:
+        - console-logging
+      test:
+        - console-logging
+      prod:
+        - console-logging
+        - file-logging
   application:
-    name: cground-spring-cloud-eureka
+    name: spring-cloud-eureka
 
 eureka:
   client:
